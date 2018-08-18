@@ -458,7 +458,7 @@ input[type="radio"].visually-hidden {
     padding: 0;
 
     /* padding-left: 50px; */
-    color: #ffffff;
+    /* color: #ffffff; */
 }
 
 /* .header-search-form::after {
@@ -487,7 +487,7 @@ input[type="radio"].visually-hidden {
     min-height: 42px;
     padding-left: 50px;
     color: inherit;
-    background: inherit;
+    background: #33445a;
     border: none;
     -webkit-transition: 200ms all;
     -o-transition: 200ms all;
@@ -1139,7 +1139,7 @@ input[type="radio"].visually-hidden {
     margin-right: 20px;
     margin-bottom: 20px;
     overflow: hidden;
-    border: 1px solid #e5e5e5;
+    /* border: 1px solid #e5e5e5; */
 }
 
 .catalog-items li:nth-child(4n) {
@@ -1289,6 +1289,7 @@ input[type="radio"].visually-hidden {
 
 .inner-page .catalog-items li:nth-child(3n) {
     margin-right: 0;
+    margin-left: -1px; /* ie11 small fix */
 }
 
 /**************************
@@ -1349,6 +1350,10 @@ input[type="radio"].visually-hidden {
     -webkit-box-pack: center;
     -ms-flex-pack: center;
     justify-content: center;
+}
+
+.popular-brands-list li {
+    margin-right: 17px;
 }
 
 /**************************
@@ -2071,6 +2076,17 @@ input[type="radio"].visually-hidden {
     background-color: #f7f3ec;
 }
 
+/*
+    Hack for IE11 with flex and min-height
+    https://github.com/philipwalton/flexbugs/issues/231
+ */
+.filters-header::after{
+    content:"";
+    min-height:inherit;
+    font-size:0;
+    display: block;
+}
+
 .filters-header p {
     margin: 0;
     padding-left: 19px;
@@ -2277,6 +2293,15 @@ input[type="radio"].visually-hidden {
     cursor: pointer;
 }
 
+.filter-button:hover,
+.filter-button:focus {
+    border-color: #bdc6ca;
+}
+
+.filter-button:active {
+    border-color: #ee3643;
+}
+
 .catalog-header {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -2287,6 +2312,16 @@ input[type="radio"].visually-hidden {
     min-height: 37px;
     margin-bottom: 20px;
     background-color: #f7f3ec;
+}
+
+/*
+    Hack for IE11 min-height and flex
+ */
+.catalog-header::after{
+    content:"";
+    min-height:inherit;
+    font-size:0;
+    display: block;
 }
 
 .catalog-header p {
@@ -2318,7 +2353,7 @@ input[type="radio"].visually-hidden {
 }
 
 .sorting-items .sorting-buttons {
-    width: 60px;
+    width: 59px;
 }
 
 .sorting-list a {
@@ -2416,13 +2451,23 @@ input[type="radio"].visually-hidden {
     align-items: center;
     min-width: 38px;
     min-height: 38px;
-    line-height: 18px;
+    /* line-height: 18px; */
     color: #000000;
     text-transform: uppercase;
     text-decoration: none;
     border: 1px solid #e5e5e5;
     border-radius: 2px;
     cursor: pointer;
+}
+
+/*
+    Hack for IE11 min-height and flex
+ */
+.pagination-list a::after{
+    content:"";
+    min-height:inherit;
+    font-size:0;
+    display: block;
 }
 
 .pagination-list a:hover,
